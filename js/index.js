@@ -39,4 +39,85 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+let navBar = Array.from(document.getElementsByTagName("a"));
+console.log(navBar);
+
+navBar.forEach(tag => {
+ let num = navBar.indexOf(tag);
+ tag.textContent = siteContent.nav[`nav-item-${num+1}`];
+ tag.style.color = "green";
+})
+
+let newNav = document.createElement('a');
+newNav.setAttribute("href","timer.html")
+newNav.textContent = "Timer";
+newNav.style.color = "green";
+let parent = document.getElementsByTagName('nav')[0];
+parent.prepend(newNav);
+
+let header = document.getElementsByClassName("cta")[0].childNodes;
+let headerLeft = header[1].childNodes;
+
+headerLeft[1].textContent= siteContent.cta["h1"];
+
+headerLeft[3].textContent = siteContent.cta["button"];
+
+header[3].setAttribute('src',siteContent.cta["img-src"]);
+
+let rickRollButton = document.createElement("a");
+rickRollButton.setAttribute("href","https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+rickRollButton.textContent = "a button"
+let buttonParent = document.getElementsByClassName("cta-text")[0];
+let tempNode = document.createElement("button");
+tempNode.appendChild(rickRollButton);
+console.log(buttonParent);
+buttonParent.append(tempNode);
+
+
+let bodyContent = Array.from(document.getElementsByClassName("text-content"));
+
+bodyContent[0].childNodes[1].textContent = siteContent["main-content"]["features-h4"];
+bodyContent[0].childNodes[3].textContent = siteContent["main-content"]["features-content"];
+
+bodyContent[1].childNodes[1].textContent = siteContent["main-content"]["about-h4"];
+bodyContent[1].childNodes[3].textContent = siteContent["main-content"]["about-content"];
+
+bodyContent[2].childNodes[1].textContent = siteContent["main-content"]["services-h4"];
+bodyContent[2].childNodes[3].textContent = siteContent["main-content"]["services-content"];
+
+bodyContent[3].childNodes[1].textContent = siteContent["main-content"]["product-h4"];
+bodyContent[3].childNodes[3].textContent = siteContent["main-content"]["product-content"];
+
+bodyContent[4].childNodes[1].textContent = siteContent["main-content"]["vision-h4"];
+bodyContent[4].childNodes[3].textContent = siteContent["main-content"]["vision-content"];
+
+
+
+let bodyimg = Array.from(document.getElementsByClassName("middle-img"));
+
+bodyimg[0].setAttribute('src',siteContent["main-content"]["middle-img-src"]);
+
+console.log(bodyContent)
+
+
+let contact = Array.from(document.getElementsByClassName("contact")[0].childNodes);
+
+contact[1].textContent= siteContent.contact["contact-h4"];
+
+contact[3].textContent= siteContent.contact["address"];
+
+contact[5].textContent= siteContent.contact["phone"];
+
+contact[7].textContent= siteContent.contact["email"];
+console.log(contact);
+
+
+let footer = Array.from(document.getElementsByTagName("footer")[0].childNodes);
+footer[1].textContent = siteContent.footer["copyright"];
+
+
+
+
+
